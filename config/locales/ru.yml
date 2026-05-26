@@ -1,0 +1,10 @@
+ru:
+  auth:
+    login_with_github: "Войти через GitHub"
+    logout: "Выйти"
+
+  web:
+    auth:
+      callback:
+        success: "Вы успешно вошли в систему"
+        logged_out: "Вы вышли из аккаунта"
