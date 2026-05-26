@@ -21,7 +21,7 @@ html
       = button_to t("auth.logout"), logout_path, method: :delete, class: "btn btn-outline-danger"
     - else
       = button_to t("auth.login_with_github"),
-        auth_request_path(provider: :github), 
-        method: :post, class: "btn btn-dark", 
-        data: {turbo: false}
+        auth_request_path(provider: :github),
+        method: :post, class: "btn btn-dark",
+        data: { turbo: false }
     = yield
