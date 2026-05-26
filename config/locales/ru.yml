@@ -1,10 +1,16 @@
 ru:
-  auth:
-    login_with_github: "Войти через GitHub"
-    logout: "Выйти"
+  layouts:
+    shared:
+      board: "Доска объявлений"
+      home: "Главная"
+      my_ads: "Мои объявления"
+      add: "Добавить"
+      login: "Войти"
+      logout: "Выйти"
 
   web:
     auth:
       callback:
         success: "Вы успешно вошли в систему"
-        logged_out: "Вы вышли из аккаунта"
+      destroy:
+        success: "Вы вышли из аккаунта"

@@ -16,12 +16,39 @@ html
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
     = Sentry.get_trace_propagation_meta.html_safe
   body
-    - if signed_in?
-      span.me-3 = current_user.name
-      = button_to t("auth.logout"), logout_path, method: :delete, class: "btn btn-outline-danger"
-    - else
-      = button_to t("auth.login_with_github"),
-        auth_request_path(provider: :github),
-        method: :post, class: "btn btn-dark",
-        data: { turbo: false }
+
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light.border-bottom
+      .container
+        = link_to t("layouts.shared.board"), root_path, class: "navbar-brand"
+        button.navbar-toggler type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          span.navbar-toggler-icon
+
+        .collapse.navbar-collapse#navbarNav
+          - if signed_in?
+            ul.navbar-nav
+              li.nav-item
+                = link_to t("layouts.shared.home"), root_path, class: "nav-link"
+
+              li.nav-item
+                = link_to t("layouts.shared.my_ads"), "#", class: "nav-link"
+
+              li.nav-item
+                = link_to t("layouts.shared.add"), "#", class: "nav-link"
+
+          ul.navbar-nav.ms-auto
+            - if signed_in?
+              li.nav-item
+                = button_to t("layouts.shared.logout"),
+                  logout_path,
+                  method: :delete,
+                  class: "btn btn-link nav-link border-0 p-0"
+
+            - else
+              li.nav-item
+                = button_to auth_request_path(provider: :github),
+                  method: :post,
+                  class: "btn btn-link nav-link border-0 p-0",
+                  form: { data: { turbo: false }, class: "d-inline" } do
+                  i.bi.bi-github.me-1
+                  = t("layouts.shared.login")
     = yield

@@ -9,7 +9,22 @@ module ActiveSupport
 
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
+  end
+end
 
-    # Add more helper methods to be used by all tests here...
+class ActionDispatch::IntegrationTest
+  def sign_in(user)
+    post auth_request_path(provider: "github", email: user.email)
+    follow_redirect!
+  end
+
+  def signed_in?
+    session[:user_id].present? && current_user.present?
+  end
+
+  def current_user
+    return @current_user if defined?(@current_user)
+
+    @current_user = User.find_by(id: session[:user_id])
   end
 end
