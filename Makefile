@@ -5,6 +5,9 @@ install:
 	bundle install
 	yarn install
 
+setup-env:
+	cp .env.example .env
+
 db-setup:
 	$(RAILS) db:create db:migrate
 
@@ -22,7 +25,7 @@ assets-clean:
 
 # ===== Render =====
 
-render-build: install db-migrate assets assets-clean
+render-build: install setup-env db-migrate assets assets-clean
 
 render-start:
 	$(BUNDLE) puma -C config/puma.rb
