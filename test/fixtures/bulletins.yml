@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  description: MyText
+  title: First bulletin
+  description: First bulletin description
   user: one
   category: one
 
 two:
-  title: MyString
-  description: MyText
+  title: Second bulletin
+  description: Second bulletin description
   user: two
   category: two

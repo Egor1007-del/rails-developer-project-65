@@ -1,4 +1,11 @@
 en:
+  activerecord:
+    errors:
+      models:
+        bulletin:
+          attributes:
+            image:
+              too_large: "must be 5 MB or less"
   layouts:
     shared:
       board: "Bulletin Board"

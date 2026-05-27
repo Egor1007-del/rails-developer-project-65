@@ -1,4 +1,11 @@
 ru:
+  activerecord:
+    errors:
+      models:
+        bulletin:
+          attributes:
+            image:
+              too_large: "должно быть не больше 5 МБ"
   layouts:
     shared:
       board: "Доска объявлений"
