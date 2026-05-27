@@ -1,7 +1,8 @@
 .container.my-4
   .card.shadow-sm
     .card-body
-      h1.mb-3 Объявления
+      h1.mb-3
+        = t(".title")
       hr
 
       - if @bulletins.any?
@@ -10,11 +11,11 @@
             .col-md-3
               .card.h-100
                 - if bulletin.image.attached?
-                  = image_tag bulletin.image, class: 'card-img-top', style: 'height: 180px; object-fit: cover;'
+                  = image_tag bulletin.image, class: "card-img-top", style: "height: 180px; object-fit: cover;"
 
                 .card-body
                   h5.card-title
-                    = link_to bulletin.title, '#'
-                  p.text-muted.mb-0 = "около #{time_ago_in_words(bulletin.created_at)}"
+                    = link_to bulletin.title, "#"
+                  p.text-muted.mb-0 = t(".ago", time: time_ago_in_words(bulletin.created_at))
       - else
-        p Объявлений пока нет
+        p = t(".empty")

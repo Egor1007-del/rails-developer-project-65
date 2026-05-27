@@ -1,0 +1,18 @@
+.container.mt-4
+  .row.justify-content-center
+    .col-md-8
+      .card
+        .card-body
+          h1.mb-4 = t(".title")
+
+          = simple_form_for @bulletin do |f|
+            = f.input :title
+
+            = f.input :description,
+              input_html: { rows: 6 }
+
+            = f.association :category
+
+            = f.input :image, as: :file
+
+            = f.button :submit, class: "btn btn-primary"

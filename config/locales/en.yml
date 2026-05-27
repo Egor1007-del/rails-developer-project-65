@@ -1,11 +1,53 @@
 en:
+  web:
+    home:
+      index:
+        title: "Bulletins"
+        empty: "No bulletins yet"
+        ago: "%{time} ago"
+    bulletins:
+      new:
+        title: "New bulletin"
+      create:
+        success: "Bulletin was successfully created"
+    auth:
+      callback:
+        success: "Successfully signed in"
+      destroy:
+        success: "Successfully signed out"
+
+  auth:
+    required: "Sign in to continue"
+
+  helpers:
+    submit:
+      bulletin:
+        create: "Create bulletin"
+
   activerecord:
+    models:
+      bulletin: "Bulletin"
+      category: "Category"
+      user: "User"
+    attributes:
+      bulletin:
+        title: "Title"
+        description: "Description"
+        category: "Category"
+        category_id: "Category"
+        image: "Image"
+      category:
+        name: "Name"
+      user:
+        name: "Name"
+        email: "Email"
     errors:
       models:
         bulletin:
           attributes:
             image:
               too_large: "must be 5 MB or less"
+
   layouts:
     shared:
       board: "Bulletin Board"
@@ -14,10 +56,29 @@ en:
       add: "Add"
       login: "Log in"
       logout: "Log out"
+    
+  datetime:
+    distance_in_words:
+      less_than_x_seconds:
+        one: "less than %{count} second"
+        other: "less than %{count} seconds"
 
-  web:
-    auth:
-      callback:
-        success: "Successfully signed in"
-      destroy:
-        success: "Successfully signed out"
+      x_seconds:
+        one: "%{count} second"
+        other: "%{count} seconds"
+
+      less_than_x_minutes:
+        one: "less than a minute"
+        other: "less than %{count} minutes"
+
+      x_minutes:
+        one: "%{count} minute"
+        other: "%{count} minutes"
+
+      about_x_hours:
+        one: "about %{count} hour"
+        other: "about %{count} hours"
+
+      x_days:
+        one: "%{count} day"
+        other: "%{count} days"

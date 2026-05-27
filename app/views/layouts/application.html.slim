@@ -33,7 +33,7 @@ html
                 = link_to t("layouts.shared.my_ads"), "#", class: "nav-link"
 
               li.nav-item
-                = link_to t("layouts.shared.add"), "#", class: "nav-link"
+                = link_to t("layouts.shared.add"), new_bulletin_path, class: "nav-link"
 
           ul.navbar-nav.ms-auto
             - if signed_in?

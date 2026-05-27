@@ -1,11 +1,54 @@
 ru:
+  web:
+    home:
+      index:
+        title: "Объявления"
+        empty: "Объявлений пока нет"
+        ago: "%{time} назад"
+    auth:
+      callback:
+        success: "Вы успешно вошли в систему"
+      destroy:
+        success: "Вы вышли из аккаунта"
+
+    bulletins:
+      new:
+        title: "Новое объявление"
+      create:
+        success: "Объявление успешно создано"
+
+  auth:
+    required: "Войдите, чтобы продолжить"
+  
+  helpers:
+    submit:
+      bulletin:
+        create: "Создать объявление"
+
   activerecord:
+    models:
+      bulletin: "Объявление"
+      category: "Категория"
+      user: "Пользователь"
+    attributes:
+      bulletin:
+        title: "Название"
+        description: "Описание"
+        category: "Категория"
+        category_id: "Категория"
+        image: "Изображение"
+      category:
+        name: "Название"
+      user:
+        name: "Имя"
+        email: "Email"
     errors:
       models:
         bulletin:
           attributes:
             image:
               too_large: "должно быть не больше 5 МБ"
+
   layouts:
     shared:
       board: "Доска объявлений"
@@ -15,9 +58,36 @@ ru:
       login: "Войти"
       logout: "Выйти"
 
-  web:
-    auth:
-      callback:
-        success: "Вы успешно вошли в систему"
-      destroy:
-        success: "Вы вышли из аккаунта"
+  datetime:
+    distance_in_words:
+      less_than_x_seconds:
+        one: "меньше %{count} секунды"
+        few: "меньше %{count} секунд"
+        many: "меньше %{count} секунд"
+        other: "меньше %{count} секунд"
+      x_seconds:
+        one: "%{count} секунда"
+        few: "%{count} секунды"
+        many: "%{count} секунд"
+        other: "%{count} секунд"
+      less_than_x_minutes:
+        one: "меньше минуты"
+        few: "меньше %{count} минут"
+        many: "меньше %{count} минут"
+        other: "меньше %{count} минут"
+      x_minutes:
+        one: "%{count} минута"
+        few: "%{count} минуты"
+        many: "%{count} минут"
+        other: "%{count} минут"
+      about_x_hours:
+        one: "около %{count} часа"
+        few: "около %{count} часов"
+        many: "около %{count} часов"
+        other: "около %{count} часов"
+      x_days:
+        one: "%{count} день"
+        few: "%{count} дня"
+        many: "%{count} дней"
+        other: "%{count} дней"
+  
