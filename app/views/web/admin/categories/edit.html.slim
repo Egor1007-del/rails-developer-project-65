@@ -1,0 +1,9 @@
+.container.mt-3
+  .row
+    .col-md-3
+      = render "web/admin/shared/sidebar"
+
+    .col-md-9
+      h1 = t(".title")
+
+      = render "form", category: @category

@@ -23,6 +23,11 @@ ru:
           edit: "Редактировать"
           delete: "Удалить"
           confirm: "Вы уверены?"
+        new:
+          title: "Новая категория"
+        edit:
+          title: "Редактирование категории"
+
 
         create:
           success: "Категория успешно создана"
@@ -57,6 +62,9 @@ ru:
     submit:
       bulletin:
         create: "Создать объявление"
+      category:
+        create: "Создать категорию"
+        update: "Сохранить изменения"
 
   activerecord:
     models:

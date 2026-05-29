@@ -23,6 +23,10 @@ en:
           edit: "Edit"
           delete: "Delete"
           confirm: "Are you sure?"
+        new:
+          title: "New category"
+        edit:
+          title: "Edit category"
 
         create:
           success: "Category was successfully created"
@@ -56,6 +60,9 @@ en:
     submit:
       bulletin:
         create: "Create bulletin"
+      category:
+        create: "Create category"
+        update: "Save changes"
 
   activerecord:
     models:
