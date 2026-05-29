@@ -1,5 +1,37 @@
 ru:
   web:
+    admin:
+      shared:
+        sidebar:
+          moderation: "Объявления на модерации"
+          bulletins: "Все объявления"
+          categories: "Все категории"
+
+      bulletins:
+        index:
+          title: "Все объявления"
+          name: "Название"
+          created_at: "Дата создания"
+
+      categories:
+        index:
+          title: "Категории"
+          new: "Добавить категорию"
+          id: "ID"
+          name: "Название"
+          actions: "Действия"
+          edit: "Редактировать"
+          delete: "Удалить"
+          confirm: "Вы уверены?"
+
+        create:
+          success: "Категория успешно создана"
+
+        update:
+          success: "Категория успешно обновлена"
+
+        destroy:
+          success: "Категория успешно удалена"
     home:
       index:
         title: "Объявления"
@@ -16,6 +48,7 @@ ru:
         title: "Новое объявление"
       create:
         success: "Объявление успешно создано"
+        
 
   auth:
     required: "Войдите, чтобы продолжить"
@@ -57,6 +90,7 @@ ru:
       add: "Добавить"
       login: "Войти"
       logout: "Выйти"
+      admin: "Админка"
 
   datetime:
     distance_in_words:

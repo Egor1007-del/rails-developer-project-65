@@ -1,5 +1,38 @@
 en:
   web:
+    admin:
+      shared:
+        sidebar:
+          moderation: "Bulletins on moderation"
+          bulletins: "All ads"
+          categories: "All categories"
+
+      bulletins:
+        index:
+          title: "Bulletins"
+          name: "Name"
+          created_at: "Creation date"
+
+      categories:
+        index:
+          title: "Categories"
+          new: "New category"
+          id: "ID"
+          name: "Name"
+          actions: "Actions"
+          edit: "Edit"
+          delete: "Delete"
+          confirm: "Are you sure?"
+
+        create:
+          success: "Category was successfully created"
+
+        update:
+          success: "Category was successfully updated"
+
+        destroy:
+          success: "Category was successfully deleted"
+      
     home:
       index:
         title: "Bulletins"
@@ -56,6 +89,7 @@ en:
       add: "Add"
       login: "Log in"
       logout: "Log out"
+      admin: "Admin"
     
   datetime:
     distance_in_words:

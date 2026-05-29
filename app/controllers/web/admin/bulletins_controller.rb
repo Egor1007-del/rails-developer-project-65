@@ -1,8 +1,8 @@
 module Web
   module Admin
-    class BulletinsController < ::ApplicationController
+    class BulletinsController < Web::ApplicationController
       def index
-        @bulletins = Bulletin.includes(:categories, :user).order(created_at: :desc)
+        @bulletins = Bulletin.includes(:category, :user).order(created_at: :desc)
       end
     end
   end

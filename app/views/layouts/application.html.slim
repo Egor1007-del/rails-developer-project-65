@@ -35,20 +35,23 @@ html
               li.nav-item
                 = link_to t("layouts.shared.add"), new_bulletin_path, class: "nav-link"
 
-          ul.navbar-nav.ms-auto
+          ul.navbar-nav.ms-auto.align-items-center
+            - if signed_in? && current_user.admin?
+              li.nav-item
+                = link_to t('layouts.shared.admin'), admin_root_path, class: 'nav-link'
+
             - if signed_in?
               li.nav-item
-                = button_to t("layouts.shared.logout"),
-                  logout_path,
-                  method: :delete,
-                  class: "btn btn-link nav-link border-0 p-0"
-
+                = button_to t('layouts.shared.logout'),
+                            logout_path,
+                            method: :delete,
+                            class: 'btn btn-link nav-link border-0 p-0'
             - else
               li.nav-item
                 = button_to auth_request_path(provider: :github),
-                  method: :post,
-                  class: "btn btn-link nav-link border-0 p-0",
-                  form: { data: { turbo: false }, class: "d-inline" } do
+                            method: :post,
+                            class: 'btn btn-link nav-link border-0 p-0',
+                            form: { data: { turbo: false }, class: 'd-inline' } do
                   i.bi.bi-github.me-1
-                  = t("layouts.shared.login")
+                  = t('layouts.shared.login')
     = yield

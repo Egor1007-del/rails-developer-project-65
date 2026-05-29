@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
     resources :bulletins, only: %i[new create]
 
-    scope module: :admin, path: :admin do
-      root "bulletins#index", as: :admin_root
-      resources :bulletins
+    namespace :admin  do
+      root "bulletins#index", as: :root
+      resources :bulletins, only: %i[index]
       resources :categories
     end
   end
