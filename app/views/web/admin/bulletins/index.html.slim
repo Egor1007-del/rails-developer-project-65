@@ -1,19 +1,19 @@
 .container.mt-3
   .row
     .col-md-3
-      = render 'web/admin/shared/sidebar'
+      = render "web/admin/shared/sidebar"
 
     .col-md-9
-      h1 = t('.title')
+      h1 = t(".title")
 
       table.table
         thead
           tr
-            th = t('.name')
-            th = t('.created_at')
+            th = t(".name")
+            th = t(".created_at")
         tbody
           - @bulletins.each do |bulletin|
             tr
               td = bulletin.title
-              td = t('web.home.index.ago',
+              td = t("web.home.index.ago",
                       time: time_ago_in_words(bulletin.created_at))
