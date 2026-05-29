@@ -78,7 +78,9 @@ en:
       about_x_hours:
         one: "about %{count} hour"
         other: "about %{count} hours"
-
       x_days:
         one: "%{count} day"
         other: "%{count} days"
+        
+  pundit:
+    not_authorized: "You are not authorized to perform this action"

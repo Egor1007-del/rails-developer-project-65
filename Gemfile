@@ -50,6 +50,8 @@ gem "omniauth-rails_csrf_protection"
 gem "slim-rails"
 gem "simple_form"
 
+gem "pundit"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

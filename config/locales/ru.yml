@@ -90,4 +90,7 @@ ru:
         few: "%{count} дня"
         many: "%{count} дней"
         other: "%{count} дней"
+        
+  pundit:
+    not_authorized: "У вас недостаточно прав"
   

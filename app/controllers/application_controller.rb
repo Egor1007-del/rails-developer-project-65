@@ -1,6 +1,14 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user, :signed_in?
 
+
+  include Pundit::Authorization
+
+  rescue_from Pundit::NotAuthorizedError do
+    redirect_to root_path, alert: t("pundit.not_authorized")
+  end
+
+
   private
 
   def current_user
