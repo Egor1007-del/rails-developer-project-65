@@ -156,9 +156,7 @@ GEM
     matrix (0.4.3)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
-    minitest (6.0.4)
-      drb (~> 2.0)
-      prism (~> 1.5)
+    minitest (5.27.0)
     msgpack (1.8.0)
     multi_xml (0.9.1)
       bigdecimal (>= 3.1, < 5)
@@ -392,6 +390,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder
   jsbundling-rails
+  minitest (~> 5.25)
   omniauth-github
   omniauth-rails_csrf_protection
   pg

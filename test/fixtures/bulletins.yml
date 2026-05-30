@@ -1,13 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: First bulletin
-  description: First bulletin description
-  user: one
+  title: Test bulletin
+  description: Test description
+  user: regular
   category: one
-
-two:
-  title: Second bulletin
-  description: Second bulletin description
-  user: two
-  category: two
