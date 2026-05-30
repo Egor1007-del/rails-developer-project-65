@@ -40,7 +40,7 @@ module Web
         @category.destroy
 
         redirect_to admin_categories_path,
-                    notice: t(".success_destroy")
+                    alert: @category.errors.full_messages.to_sentence
       end
 
       private

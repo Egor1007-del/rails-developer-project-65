@@ -1,0 +1,5 @@
+- flash.each do |type, message|
+  - bootstrap_class = type == "notice" ? "alert-success" : "alert-danger"
+
+  .alert class=bootstrap_class
+    = message

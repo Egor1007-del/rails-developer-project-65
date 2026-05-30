@@ -85,10 +85,16 @@ ru:
         email: "Email"
     errors:
       models:
+        category:
+          attributes:
+            base:
+              restrict_dependent_destroy:
+                has_many: "Нельзя удалить категорию, пока в ней есть объявления"
         bulletin:
           attributes:
             image:
               too_large: "должно быть не больше 5 МБ"
+      
 
   layouts:
     shared:
@@ -136,3 +142,10 @@ ru:
   pundit:
     not_authorized: "У вас недостаточно прав"
   
+  errors:
+    title: "Исправьте ошибки:"
+    messages:
+      blank: "не может быть пустым"
+      too_short: "слишком короткое"
+      too_long: "слишком длинное"
+      taken: "уже занято"

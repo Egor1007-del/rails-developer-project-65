@@ -54,4 +54,6 @@ html
                             form: { data: { turbo: false }, class: "d-inline" } do
                   i.bi.bi-github.me-1
                   = t("layouts.shared.login")
+    .container.mt-3
+      = render "shared/flash"
     = yield

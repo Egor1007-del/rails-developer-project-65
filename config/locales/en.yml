@@ -83,10 +83,20 @@ en:
         email: "Email"
     errors:
       models:
+        category:
+          attributes:
+            base:
+              restrict_dependent_destroy:
+                has_many: "Нельзя удалить категорию, пока в ней есть объявления"
         bulletin:
           attributes:
             image:
               too_large: "must be 5 MB or less"
+      messages:
+        blank: "can't be blank"
+        too_short: "is too short"
+        too_long: "is too long"
+        taken: "has already been taken"
 
   layouts:
     shared:
@@ -125,3 +135,11 @@ en:
         
   pundit:
     not_authorized: "You are not authorized to perform this action"
+
+  errors:
+    title: "Please fix the errors:"
+    messages:
+      blank: "can't be blank"
+      too_short: "is too short"
+      too_long: "is too long"
+      taken: "has already been taken"
