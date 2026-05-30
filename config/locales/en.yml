@@ -12,6 +12,37 @@ en:
           title: "Bulletins"
           name: "Name"
           created_at: "Creation date"
+        moderation:
+          title: "Bulletins on moderation"
+
+        table:
+          title_column: "Title"
+          category: "Category"
+          author: "Author"
+          state: "State"
+          created_at: "Created at"
+          actions: "Actions"
+          show: "Show"
+          publish: "Publish"
+          reject: "Reject"
+          archive: "Archive"
+
+        show:
+          category: "Category"
+          author: "Author"
+          state: "State"
+          publish: "Publish"
+          reject: "Reject"
+          archive: "Archive"
+
+        publish:
+          success: "Bulletin was published"
+
+        reject:
+          success: "Bulletin was rejected"
+
+        archive:
+          success: "Bulletin was archived"
 
       categories:
         index:

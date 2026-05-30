@@ -12,6 +12,37 @@ ru:
           title: "Все объявления"
           name: "Название"
           created_at: "Дата создания"
+        moderation:
+          title: "Объявления на модерации"
+
+        table:
+          title_column: "Название"
+          category: "Категория"
+          author: "Автор"
+          state: "Состояние"
+          created_at: "Дата создания"
+          actions: "Действия"
+          show: "Просмотр"
+          publish: "Опубликовать"
+          reject: "Вернуть"
+          archive: "В архив"
+
+        show:
+          category: "Категория"
+          author: "Автор"
+          state: "Состояние"
+          publish: "Опубликовать"
+          reject: "Отклонить"
+          archive: "В архив"
+
+        publish:
+          success: "Объявление опубликовано"
+
+        reject:
+          success: "Объявление отклонено"
+
+        archive:
+          success: "Объявление отправлено в архив"
 
       categories:
         index:

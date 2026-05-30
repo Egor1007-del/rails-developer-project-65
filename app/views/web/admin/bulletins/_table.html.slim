@@ -1,0 +1,36 @@
+table.table.align-middle
+  thead
+    tr
+      th = t(".title_column")
+      th = t(".category")
+      th = t(".author")
+      th = t(".created_at")
+      th = t(".actions")
+
+  tbody
+    - bulletins.each do |bulletin|
+      tr
+        td = link_to bulletin.title, admin_bulletin_path(bulletin)
+        td = bulletin.category.name
+        td = bulletin.user.email
+        td = t("web.home.index.ago", time: time_ago_in_words(bulletin.created_at))
+        td
+          .d-flex.gap-1.align-items-center
+
+            - if bulletin.may_publish?
+              = link_to t(".publish"),
+                publish_admin_bulletin_path(bulletin),
+                data: { turbo_method: :patch },
+                class: "btn btn-sm btn-primary"
+
+            - if bulletin.may_reject?
+              = link_to t(".reject"),
+                reject_admin_bulletin_path(bulletin),
+                data: { turbo_method: :patch },
+                class: "btn btn-sm btn-warning"
+
+            - if bulletin.may_archive?
+              = link_to t(".archive"),
+                archive_admin_bulletin_path(bulletin),
+                data: { turbo_method: :patch },
+                class: "btn btn-sm btn-danger"

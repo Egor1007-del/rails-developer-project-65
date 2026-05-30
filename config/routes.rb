@@ -18,8 +18,19 @@ Rails.application.routes.draw do
 
     namespace :admin  do
       root "bulletins#index", as: :root
-      resources :bulletins, only: %i[index]
       resources :categories
+
+      resources :bulletins, only: %i[index show] do
+        member do
+          patch :publish
+          patch :reject
+          patch :archive
+        end
+
+        collection do
+          get :moderation
+        end
+      end
     end
   end
 end
