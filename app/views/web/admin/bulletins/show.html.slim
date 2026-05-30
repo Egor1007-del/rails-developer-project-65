@@ -1,0 +1,39 @@
+.container.mt-4
+  .card.shadow-sm
+    .card-body
+      h1.mb-3 = @bulletin.title
+      hr
+
+      .row
+        .col-md-8
+          - if @bulletin.image.attached?
+            = image_tag @bulletin.image,
+                        class: "img-thumbnail mb-3",
+                        style: "max-width: 220px;"
+
+          p = @bulletin.description
+
+        .col-md-4
+          .card
+            .card-body
+              p.mb-1
+                strong = t(".author")
+              p = @bulletin.user.email
+
+              p.mb-1
+                strong = t(".category")
+              p = @bulletin.category.name
+
+              p.mb-1
+                strong = t(".state")
+              p = t("bulletins.states.#{@bulletin.state}")
+
+      .d-flex.gap-2.mt-3
+        - if @bulletin.may_publish?
+          = link_to t(".publish"), publish_admin_bulletin_path(@bulletin), data: { turbo_method: :patch }, class: "btn btn-success"
+
+        - if @bulletin.may_reject?
+          = link_to t(".reject"), reject_admin_bulletin_path(@bulletin), data: { turbo_method: :patch }, class: "btn btn-warning"
+
+        - if @bulletin.may_archive?
+          = link_to t(".archive"), archive_admin_bulletin_path(@bulletin), data: { turbo_method: :patch }, class: "btn btn-outline-danger"
