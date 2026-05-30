@@ -38,6 +38,9 @@ class Bulletin < ApplicationRecord
     end
   end
 
+  scope :published, -> { where(state: :published) }
+  scope :under_moderation, -> { where(state: :under_moderation) }
+
   private
 
   def image_size
