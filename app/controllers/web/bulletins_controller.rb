@@ -16,6 +16,20 @@ module Web
       end
     end
 
+    def to_moderate
+      @bulletin = current_user.bulletins.find(params[:id])
+
+      @bulletin.to_moderate!
+      redirect_to profile_path, notice: t(".success")
+    end
+
+    def archive
+      @bulletin = current_user.bulletins.find(params[:id])
+
+      @bulletin.archive!
+      redirect_to profile_path, notice: t(".success")
+    end
+
     private
 
     def bulletin_params

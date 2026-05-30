@@ -53,7 +53,31 @@ ru:
         title: "Новое объявление"
       create:
         success: "Объявление успешно создано"
+      to_moderate:
+        success: "Объявление отправлено на модерацию"
+      archive:
+        success: "Объявление отправлено в архив"
+
+    profiles:
+      show:
+        title: "Мои объявления"
+        new_bulletin: "Добавить объявление"
+        title_column: "Название"
+        category: "Категория"
+        state: "Состояние"
+        created_at: "Дата создания"
+        actions: "Действия"
+        no_actions: "Нет действий"
+        to_moderate: "На модерацию"
+        archive: "В архив"
         
+  bulletins:
+    states:
+      draft: "Черновик"
+      under_moderation: "На модерации"
+      published: "Опубликовано"
+      rejected: "Отклонено"
+      archived: "В архиве"    
 
   auth:
     required: "Войдите, чтобы продолжить"

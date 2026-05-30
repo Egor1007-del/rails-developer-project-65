@@ -42,17 +42,43 @@ en:
         title: "Bulletins"
         empty: "No bulletins yet"
         ago: "%{time} ago"
-    bulletins:
-      new:
-        title: "New bulletin"
-      create:
-        success: "Bulletin was successfully created"
     auth:
       callback:
         success: "Successfully signed in"
       destroy:
         success: "Successfully signed out"
 
+    bulletins:
+      new:
+        title: "New bulletin"
+      create:
+        success: "Bulletin was successfully created"
+      to_moderate:
+        success: "Bulletin was sent to moderation"
+      archive:
+        success: "Bulletin was archived"
+    
+    profiles:
+      show:
+        title: "My bulletins"
+        new_bulletin: "Add bulletin"
+        title_column: "Title"
+        category: "Category"
+        state: "State"
+        created_at: "Created at"
+        actions: "Actions"
+        no_actions: "No actions"
+        to_moderate: "Send to moderation"
+        archive: "Archive"
+
+  bulletins:
+    states:
+      draft: "Draft"
+      under_moderation: "Under moderation"
+      published: "Published"
+      rejected: "Rejected"
+      archived: "Archived"
+      
   auth:
     required: "Sign in to continue"
 

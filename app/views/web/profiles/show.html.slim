@@ -1,0 +1,40 @@
+.container.mt-3
+  .d-flex.justify-content-between.align-items-center.mb-3
+    h1 = t(".title")
+
+    = link_to t(".new_bulletin"),
+              new_bulletin_path,
+              class: "btn btn-primary"
+
+  table.table
+    thead
+      tr
+        th = t(".title_column")
+        th = t(".category")
+        th = t(".state")
+        th = t(".created_at")
+        th = t(".actions")
+
+    tbody
+      - @bulletins.each do |bulletin|
+        tr
+          td = bulletin.title
+          td = bulletin.category.name
+          td = t("bulletins.states.#{bulletin.state}")
+          td = t("web.home.index.ago",
+                  time: time_ago_in_words(bulletin.created_at))
+          td
+            .d-flex.gap-2
+              - if bulletin.may_to_moderate?
+                = button_to t(".to_moderate"),
+                            to_moderate_bulletin_path(bulletin),
+                            method: :patch,
+                            class: "btn btn-sm btn-primary"
+
+              - if bulletin.may_archive?
+                = button_to t(".archive"),
+                            archive_bulletin_path(bulletin),
+                            method: :patch,
+                            class: "btn btn-sm btn-outline-danger"
+              - unless bulletin.may_to_moderate? || bulletin.may_archive?
+                span.text-muted = t(".no_actions")
