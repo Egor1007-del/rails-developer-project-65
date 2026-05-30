@@ -1,4 +1,6 @@
 class Bulletin < ApplicationRecord
+  include AASM
+
   MAX_IMAGE_SIZE = 5.megabytes
 
   belongs_to :user
@@ -10,6 +12,31 @@ class Bulletin < ApplicationRecord
   validates :description, presence: true, length: { maximum: 1000 }
   validates :image, presence: true
   validate :image_size
+
+
+  aasm column: :state do
+    state :draft, initial: true
+    state :under_moderation
+    state :published
+    state :rejected
+    state :archived
+
+    event :to_moderate do
+      transitions from: %i[draft rejected], to: :under_moderation
+    end
+
+    event :publish do
+      transitions from: :under_moderation, to: :published
+    end
+
+    event :reject do
+      transitions from: :under_moderation, to: :rejected
+    end
+
+    event :archive do
+      transitions from: %i[draft under_moderation published rejected], to: :archived
+    end
+  end
 
   private
 
