@@ -98,4 +98,16 @@ class AdminCategoriesTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to admin_categories_path
   end
+
+  test "admin cannot destroy category with bulletins" do
+    sign_in(@admin)
+
+    category = categories(:one)
+
+    assert_no_difference("Category.count") do
+      delete admin_category_path(category)
+    end
+
+    assert_redirected_to admin_categories_path
+  end
 end
