@@ -1,6 +1,10 @@
 module Web
   class BulletinsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: %i[ show ]
+
+    def show
+      @bulletin = Bulletin.published.find(params[:id])
+    end
 
     def new
       @bulletin = Bulletin.new
@@ -10,7 +14,7 @@ module Web
       @bulletin = current_user.bulletins.build(bulletin_params)
 
       if @bulletin.save
-        redirect_to root_path, notice: t(".success")
+        redirect_to profile_path, notice: t(".success")
       else
         render :new, status: :unprocessable_entity
       end

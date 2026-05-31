@@ -14,7 +14,7 @@ class Bulletin < ApplicationRecord
   validate :image_size
 
 
-  aasm column: :state do
+  aasm column: :state, skip_validation_on_save: true do
     state :draft, initial: true
     state :under_moderation
     state :published

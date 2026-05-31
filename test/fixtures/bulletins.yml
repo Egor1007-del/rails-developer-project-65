@@ -1,7 +1,36 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: Test bulletin
-  description: Test description
+draft:
+  title: Draft bulletin
+  description: Draft description
   user: regular
   category: one
+  state: draft
+
+under_moderation:
+  title: Moderation bulletin
+  description: Moderation description
+  user: regular
+  category: one
+  state: under_moderation
+
+published:
+  title: Published bulletin
+  description: Published description
+  user: admin
+  category: one
+  state: published
+
+rejected:
+  title: Rejected bulletin
+  description: Rejected description
+  user: admin
+  category: one
+  state: rejected
+
+archived:
+  title: Archived bulletin
+  description: Archived description
+  user: admin
+  category: one
+  state: archived

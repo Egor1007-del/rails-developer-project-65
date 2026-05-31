@@ -88,6 +88,9 @@ en:
         success: "Bulletin was sent to moderation"
       archive:
         success: "Bulletin was archived"
+      show:
+        author: "Author"
+        category: "Category"
     
     profiles:
       show:

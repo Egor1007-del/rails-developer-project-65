@@ -88,6 +88,9 @@ ru:
         success: "Объявление отправлено на модерацию"
       archive:
         success: "Объявление отправлено в архив"
+      show:
+        author: "Автор"
+        category: "Категория"
 
     profiles:
       show:

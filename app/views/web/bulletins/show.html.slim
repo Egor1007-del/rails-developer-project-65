@@ -1,0 +1,25 @@
+.container.mt-4
+  .card.shadow-sm
+    .card-body
+      h1.mb-3 = @bulletin.title
+      hr
+
+      .row
+        .col-md-8
+          - if @bulletin.image.attached?
+            = image_tag @bulletin.image,
+                        class: "img-thumbnail mb-3",
+                        style: "max-width: 220px;"
+
+          p = @bulletin.description
+
+        .col-md-4
+          .card
+            .card-body
+              p.mb-1
+                strong = t(".author")
+              p = @bulletin.user.name.presence || @bulletin.user.email
+
+              p.mb-1
+                strong = t(".category")
+              p = @bulletin.category.name
