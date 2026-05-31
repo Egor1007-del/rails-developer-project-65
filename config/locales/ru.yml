@@ -108,6 +108,10 @@ ru:
         no_actions: "Нет действий"
         to_moderate: "На модерацию"
         archive: "В архив"
+        search_by_title: "Искать по названию объявления"
+        all_states: "По состоянию"
+        search: "Искать"
+        reset: "Сброс"
         
   bulletins:
     states:

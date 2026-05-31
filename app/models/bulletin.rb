@@ -42,7 +42,7 @@ class Bulletin < ApplicationRecord
   scope :under_moderation, -> { where(state: :under_moderation) }
 
   def self.ransackable_attributes(_auth_object = nil)
-    %w[title category_id]
+    %w[title category_id state]
   end
   def self.ransackable_associations(_auth_object = nil)
     %w[category]

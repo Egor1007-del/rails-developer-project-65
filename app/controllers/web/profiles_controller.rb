@@ -3,7 +3,12 @@ module Web
     before_action :authenticate_user!
 
     def show
-      @bulletins = current_user.bulletins.includes(:category).order(created_at: :desc)
+      @q = current_user.bulletins.ransack(params[:q])
+      @bulletins = @q.result(distinct: true)
+        .includes(:category)
+        .order(created_at: :desc)
+        .page(params[:page])
+        .per(10)
     end
   end
 end

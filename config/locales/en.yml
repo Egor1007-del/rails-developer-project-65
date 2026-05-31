@@ -108,6 +108,10 @@ en:
         no_actions: "No actions"
         to_moderate: "Send to moderation"
         archive: "Archive"
+        search_by_title: "Search by ad title"
+        all_states: "States"
+        search: "Search"
+        reset: "Reset"
 
   bulletins:
     states:
