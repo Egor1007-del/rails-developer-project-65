@@ -36,3 +36,5 @@
                   p.text-muted.mb-0 = t(".ago", time: time_ago_in_words(bulletin.created_at))
       - else
         p = t(".empty")
+      .mt-4.d-flex.justify-content-center
+        = paginate @bulletins

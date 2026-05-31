@@ -207,3 +207,10 @@ en:
       too_short: "is too short"
       too_long: "is too long"
       taken: "has already been taken"
+  views:
+    pagination:
+      first: " « "
+      last: " » "
+      previous: " ‹ "
+      next: " › "
+      truncate: " … "

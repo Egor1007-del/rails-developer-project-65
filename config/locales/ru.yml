@@ -211,3 +211,10 @@ ru:
       too_short: "слишком короткое"
       too_long: "слишком длинное"
       taken: "уже занято"
+  views:
+    pagination:
+      first: " « "
+      last: " » "
+      previous: " ‹ "
+      next: " › "
+      truncate: " … "
