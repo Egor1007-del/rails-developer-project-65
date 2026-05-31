@@ -73,6 +73,10 @@ ru:
         title: "Объявления"
         empty: "Объявлений пока нет"
         ago: "%{time} назад"
+        search_by_title: "Искать по названию объявления"
+        all_categories: "Выбрать категорию"
+        search: "Искать"
+        reset: "Сброс"
     auth:
       callback:
         success: "Вы успешно вошли в систему"

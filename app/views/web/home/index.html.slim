@@ -5,6 +5,23 @@
         = t(".title")
       hr
 
+      = search_form_for(@q, url: root_path, method: :get) do |f|
+          .row.mb-3
+            .col-md-6
+              = f.search_field :title_cont,
+                                    class: "form-control",
+                                    placeholder: t(".search_by_title")
+            .col-md-4
+              = f.collection_select(:category_id_eq,
+                                    Category.order(:name),
+                                    :id,
+                                    :name,
+                                    { include_blank: t(".all_categories") },
+                                    class: "form-select")
+            .col-md-2
+              = f.submit t(".search"), class: "btn btn-primary"
+              =< link_to t(".reset"), root_path, class: "btn btn-outline-primary"
+
       - if @bulletins.any?
         .row.g-4
           - @bulletins.each do |bulletin|

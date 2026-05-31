@@ -142,6 +142,18 @@ GEM
     json (2.19.4)
     jwt (3.2.0)
       base64
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     logger (1.7.0)
@@ -266,6 +278,10 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.4.2)
+    ransack (4.4.1)
+      activerecord (>= 7.2)
+      activesupport (>= 7.2)
+      i18n
     rdoc (7.2.0)
       erb
       psych (>= 4.0.0)
@@ -393,6 +409,7 @@ DEPENDENCIES
   dotenv-rails
   jbuilder
   jsbundling-rails
+  kaminari
   minitest (~> 5.25)
   omniauth-github
   omniauth-rails_csrf_protection
@@ -400,6 +417,7 @@ DEPENDENCIES
   puma (>= 5.0)
   pundit
   rails (~> 7.2.0)
+  ransack
   rubocop
   rubocop-rails-omakase
   selenium-webdriver
