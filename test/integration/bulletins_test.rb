@@ -46,4 +46,23 @@ class BulletinsTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to root_path
   end
+  test "bulletin publication workflow" do
+    bulletin = bulletins(:draft)
+
+    sign_in(users(:regular))
+
+    patch to_moderate_bulletin_path(bulletin)
+
+    assert bulletin.reload.under_moderation?
+
+    sign_in(users(:admin))
+
+    patch publish_admin_bulletin_path(bulletin)
+
+    assert bulletin.reload.published?
+
+    get root_path
+
+    assert_match bulletin.title, response.body
+  end
 end
