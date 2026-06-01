@@ -17,7 +17,6 @@ Rails.application.routes.draw do
     resource :profile, only: %i[show]
 
     namespace :admin  do
-      root "bulletins#index", as: :root
       resources :categories
 
       resources :bulletins, only: %i[index show] do
