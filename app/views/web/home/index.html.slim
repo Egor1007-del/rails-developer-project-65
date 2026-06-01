@@ -11,14 +11,14 @@
               = f.search_field :title_cont,
                                     class: "form-control",
                                     placeholder: t(".search_by_title")
-            .col-md-4
+            .col-md-3
               = f.collection_select(:category_id_eq,
                                     Category.order(:name),
                                     :id,
                                     :name,
                                     { include_blank: t(".all_categories") },
                                     class: "form-select")
-            .col-md-2
+            .col-md-3
               = f.submit t(".search"), class: "btn btn-primary"
               =< link_to t(".reset"), root_path, class: "btn btn-outline-primary"
 

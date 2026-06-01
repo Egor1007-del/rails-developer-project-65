@@ -6,4 +6,25 @@
     .col-md-10
       h1 = t(".title")
 
+      = search_form_for @q, url: admin_bulletins_path, method: :get do |f|
+        .row.mb-3
+          .col-md-6
+            = f.search_field :title_cont,
+                            class: "form-control",
+                            placeholder: t(".search_by_title")
+
+          .col-md-3
+            = f.collection_select :category_id_eq,
+                                  Category.order(:name),
+                                  :id,
+                                  :name,
+                                  { include_blank: t(".all_categories") },
+                                  { class: "form-select" }
+
+          .col-md-3
+            => f.submit t(".search"), class: "btn btn-primary"
+            = link_to t(".reset"), admin_bulletins_path, class: "btn btn-outline-primary"
+
       = render "table", bulletins: @bulletins
+    .mt-4.d-flex.justify-content-center
+      = paginate @bulletins

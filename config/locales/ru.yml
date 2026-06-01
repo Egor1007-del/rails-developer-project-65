@@ -12,8 +12,17 @@ ru:
           title: "Все объявления"
           name: "Название"
           created_at: "Дата создания"
+          search_by_title: "Искать по названию объявления"
+          all_categories: "Выбрать категорию"
+          search: "Искать"
+          reset: "Сброс"
+
         moderation:
           title: "Объявления на модерации"
+          search_by_title: "Искать по названию объявления"
+          all_categories: "Выбрать категорию"
+          search: "Искать"
+          reset: "Сброс"
 
         table:
           title_column: "Название"

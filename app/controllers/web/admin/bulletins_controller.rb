@@ -3,13 +3,23 @@ module Web
     class BulletinsController < ApplicationController
       before_action :set_bulletin, only: %i[show reject publish archive]
       def index
-        @bulletins = Bulletin.includes(:category, :user).order(created_at: :desc)
+        @q = Bulletin.ransack(params[:q])
+        @bulletins = @q.result(distinct: true)
+                      .includes(:category, :user)
+                      .order(created_at: :desc)
+                      .page(params[:page])
+                      .per(10)
       end
 
       def show; end
 
       def moderation
-        @bulletins = Bulletin.under_moderation.includes(:category, :user).order(created_at: :desc)
+        @q = Bulletin.under_moderation.ransack(params[:q])
+        @bulletins = @q.result(distinct: true)
+                      .includes(:category, :user)
+                      .order(created_at: :desc)
+                      .page(params[:page])
+                      .per(10)
       end
 
       def reject

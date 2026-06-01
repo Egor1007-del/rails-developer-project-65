@@ -12,9 +12,17 @@ en:
           title: "Bulletins"
           name: "Name"
           created_at: "Creation date"
+          search_by_title: "Search by bulletin title"
+          all_categories: "Select category"
+          search: "Search"
+          reset: "Reset"
         moderation:
           title: "Bulletins on moderation"
-
+          search_by_title: "Search by bulletin title"
+          all_categories: "Select category"
+          search: "Search"
+          reset: "Reset"
+          
         table:
           title_column: "Title"
           category: "Category"
