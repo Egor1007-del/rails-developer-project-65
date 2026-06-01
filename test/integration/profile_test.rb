@@ -39,4 +39,38 @@ class ProfileTest < ActionDispatch::IntegrationTest
     assert_redirected_to profile_path
     assert bulletin.reload.archived?
   end
+  test "user searches own bulletins by title" do
+    sign_in(users(:regular))
+
+    get profile_path, params: {
+      q: {
+        title_cont: bulletins(:draft).title
+      }
+    }
+
+    assert_response :success
+    assert_match bulletins(:draft).title, response.body
+  end
+
+  test "user filters own bulletins by state" do
+    sign_in(users(:regular))
+
+    get profile_path, params: {
+      q: {
+        state_eq: "draft"
+      }
+    }
+
+    assert_response :success
+    assert_match bulletins(:draft).title, response.body
+    assert_no_match bulletins(:published).title, response.body
+  end
+
+  test "profile supports pagination" do
+    sign_in(users(:regular))
+
+    get profile_path, params: { page: 2 }
+
+    assert_response :success
+  end
 end
