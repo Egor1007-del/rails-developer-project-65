@@ -1,29 +1,26 @@
-### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Egor1007-del/rails-developer-project-65/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Egor1007-del/rails-developer-project-65/actions)
 
-### CI
 [![CI](https://github.com/Egor1007-del/rails-developer-project-65/actions/workflows/ci.yml/badge.svg)](https://github.com/Egor1007-del/rails-developer-project-65/actions/workflows/ci.yml)
-
-
-# Rails Project 3
-
-Доска объявлений на Ruby on Rails.
-
-## Live Demo
 
 [![Render](https://img.shields.io/badge/Render-Deployed-success)](https://rails-developer-project-65-1.onrender.com)
 
+# Доска объявлений
+
+Доска объявлений на Ruby on Rails.
+
+## Демонстрация проекта
+
 https://rails-developer-project-65-1.onrender.com
 
-## Features
+## Возможности
 
-### Authentication
+### Авторизация
 
 - Авторизация через GitHub OAuth
-- Профиль пользователя
-- Разделение прав доступа для пользователей и администраторов
+- Личный кабинет пользователя
+- Разделение прав доступа пользователей и администраторов
 
-### Bulletins
+### Объявления
 
 - Создание объявлений
 - Редактирование собственных объявлений
@@ -31,7 +28,7 @@ https://rails-developer-project-65-1.onrender.com
 - Архивирование объявлений
 - Загрузка изображений через Active Storage
 
-### Moderation
+### Модерация
 
 - Административная панель
 - Управление категориями
@@ -39,21 +36,21 @@ https://rails-developer-project-65-1.onrender.com
 - Отклонение объявлений
 - Архивирование объявлений
 
-### Search and Filters
+### Поиск и фильтрация
 
 - Поиск по названию объявления
 - Фильтрация по категориям
 - Фильтрация по состояниям
-- Пагинация с Kaminari
+- Пагинация с использованием Kaminari
 
-### Internationalization
+### Интернационализация
 
 - Русский язык
 - Английский язык
 
-## Bulletin States
+## Состояния объявлений
 
-Объявления проходят следующие состояния:
+Объявления могут находиться в следующих состояниях:
 
 - draft
 - under_moderation
@@ -61,7 +58,7 @@ https://rails-developer-project-65-1.onrender.com
 - rejected
 - archived
 
-## Technologies
+## Используемые технологии
 
 - Ruby 3.3.4
 - Rails 7.2
@@ -76,9 +73,9 @@ https://rails-developer-project-65-1.onrender.com
 - Active Storage
 - Sentry
 
-## Installation
+## Установка и запуск
 
-### Clone repository
+### Клонирование репозитория
 
 ```bash
 git clone https://github.com/Egor1007-del/rails-developer-project-65.git
@@ -86,13 +83,13 @@ git clone https://github.com/Egor1007-del/rails-developer-project-65.git
 cd rails-developer-project-65
 ```
 
-### Create environment file
+### Создание файла окружения
 
 ```bash
 cp .env.example .env
 ```
 
-### Environment variables
+### Переменные окружения
 
 ```env
 GITHUB_CLIENT_ID=
@@ -100,7 +97,7 @@ GITHUB_CLIENT_SECRET=
 SENTRY_DSN=
 ```
 
-### Install dependencies and setup project
+### Установка зависимостей и настройка проекта
 
 ```bash
 make dev
@@ -108,14 +105,14 @@ make dev
 
 Команда выполняет:
 
-- установку gem-зависимостей;
+- установку Ruby-зависимостей;
 - установку JavaScript-зависимостей;
-- настройку окружения;
+- создание файла окружения;
 - создание базы данных;
 - выполнение миграций;
 - загрузку тестовых данных.
 
-### Run application
+### Запуск приложения
 
 ```bash
 bin/dev
@@ -127,7 +124,7 @@ bin/dev
 http://localhost:3000
 ```
 
-## Database
+## Работа с базой данных
 
 Создание базы данных:
 
@@ -147,7 +144,7 @@ bin/rails db:migrate
 bin/rails db:seed
 ```
 
-## Tests
+## Тестирование
 
 Запуск всех тестов:
 
@@ -161,7 +158,7 @@ make test
 bin/rails test
 ```
 
-## Lint
+## Проверка качества кода
 
 Запуск Rubocop и Slim-Lint:
 
@@ -169,36 +166,36 @@ bin/rails test
 make lint
 ```
 
-Отдельно:
+Отдельный запуск:
 
 ```bash
 bundle exec rubocop
 bundle exec slim-lint app/views
 ```
 
-## Project Structure
+## Структура проекта
 
-### Main Pages
+### Основные страницы
 
 - Главная страница
-- Страница объявления
+- Просмотр объявления
 - Создание объявления
 - Редактирование объявления
-- Профиль пользователя
+- Личный кабинет пользователя
 - Административная панель
 - Управление категориями
 - Модерация объявлений
 
-### User Roles
+### Роли пользователей
 
-#### User
+#### Пользователь
 
 - Создание объявлений
 - Редактирование собственных объявлений
-- Отправка объявления на модерацию
+- Отправка объявлений на модерацию
 - Архивирование собственных объявлений
 
-#### Admin
+#### Администратор
 
 - Управление категориями
 - Публикация объявлений
@@ -206,22 +203,22 @@ bundle exec slim-lint app/views
 - Архивирование объявлений
 - Доступ к административной панели
 
-## Deployment
+## Развертывание
 
-Проект разворачивается на Render.
+Проект развернут на платформе Render.
 
-### Build Command
+### Команда сборки
 
 ```bash
 make render-build
 ```
 
-### Start Command
+### Команда запуска
 
 ```bash
 make render-start
 ```
 
-## Author
+## Автор
 
 Egor1007
