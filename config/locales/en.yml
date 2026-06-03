@@ -103,6 +103,10 @@ en:
       show:
         author: "Author"
         category: "Category"
+      edit:
+        title: "Edit bulletin"
+      update:
+        success: "Bulletin successfully updated"
     
     profiles:
       show:
@@ -120,6 +124,8 @@ en:
         all_states: "States"
         search: "Search"
         reset: "Reset"
+        show: "Show"
+        edit: "Edit"
 
   bulletins:
     states:

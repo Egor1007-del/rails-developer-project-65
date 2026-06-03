@@ -104,6 +104,10 @@ ru:
       show:
         author: "Автор"
         category: "Категория"
+      update:
+        success: "Объявление успешно обновлено"
+      edit:
+        title: "Редактирование объявления"
 
     profiles:
       show:
@@ -121,6 +125,8 @@ ru:
         all_states: "По состоянию"
         search: "Искать"
         reset: "Сброс"
+        show: "Показать"
+        edit: "Редактировать"
         
   bulletins:
     states:

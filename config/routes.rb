@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     delete "logout", to: "auth#destroy", as: :logout
 
 
-    resources :bulletins, only: %i[new create show] do
+    resources :bulletins, only: %i[new create show edit update] do
       member do
         patch :to_moderate
         patch :archive
