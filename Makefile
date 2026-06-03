@@ -9,7 +9,7 @@ install:
 	yarn install
 
 setup-env:
-	cp .env.example .env
+	cp -n .env.example .env || true
 
 db-setup:
 	$(RAILS) db:create db:migrate
