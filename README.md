@@ -1,7 +1,5 @@
 [![Actions Status](https://github.com/Egor1007-del/rails-developer-project-65/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Egor1007-del/rails-developer-project-65/actions)
-
 [![CI](https://github.com/Egor1007-del/rails-developer-project-65/actions/workflows/ci.yml/badge.svg)](https://github.com/Egor1007-del/rails-developer-project-65/actions/workflows/ci.yml)
-
 [![Render](https://img.shields.io/badge/Render-Deployed-success)](https://rails-developer-project-65-1.onrender.com)
 
 # Доска объявлений
