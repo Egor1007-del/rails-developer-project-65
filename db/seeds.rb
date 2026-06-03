@@ -44,6 +44,7 @@ bulletins_data = [
 
 image_path = Rails.root.join("app/assets/images/test.png")
 
+puts "Image exists: #{File.exist?(image_path)}"
 
 
 bulletins_data.each_with_index do |(title, category_name), index|
@@ -62,13 +63,19 @@ bulletins_data.each_with_index do |(title, category_name), index|
     user: users.sample,
     state: states
   )
+
   unless bulletin.image.attached?
+
     bulletin.image.attach(
       io: File.open(image_path),
       filename: "test.png",
       content_type: "image/png"
     )
+    puts "Attached image to #{bulletin.title}"
   end
 
   bulletin.save!
 end
+
+puts "Attachments: #{ActiveStorage::Attachment.count}"
+puts "Blobs: #{ActiveStorage::Blob.count}"
