@@ -65,4 +65,94 @@ class BulletinsTest < ActionDispatch::IntegrationTest
 
     assert_match bulletin.title, response.body
   end
+
+  test "guest can view published bulletin" do
+    bulletin = bulletins(:published)
+
+    get bulletin_path(bulletin)
+
+    assert_response :success
+    assert_match bulletin.title, response.body
+  end
+
+  test "guest cannot view draft bulletin" do
+    bulletin = bulletins(:draft)
+
+    get bulletin_path(bulletin)
+
+    assert_redirected_to root_path
+  end
+
+  test "owner can view own draft bulletin" do
+    sign_in(users(:regular))
+
+    bulletin = bulletins(:draft)
+
+    get bulletin_path(bulletin)
+
+    assert_response :success
+    assert_match bulletin.title, response.body
+  end
+  test "owner can open edit page" do
+    sign_in(users(:regular))
+
+    bulletin = bulletins(:draft)
+
+    get edit_bulletin_path(bulletin)
+
+    assert_response :success
+  end
+
+  test "guest cannot open edit page" do
+    bulletin = bulletins(:draft)
+
+    get edit_bulletin_path(bulletin)
+
+    assert_redirected_to root_path
+  end
+  test "owner can update bulletin" do
+    sign_in(users(:regular))
+
+    bulletin = bulletins(:draft)
+
+    image = fixture_file_upload(Rails.root.join("test/fixtures/files/test.png"), "image/png")
+
+    patch bulletin_path(bulletin), params: {
+      bulletin: {
+        title: "Updated title",
+        description: bulletin.description,
+        category_id: bulletin.category_id,
+        image: image
+      }
+    }
+
+    assert_redirected_to profile_path
+    assert_equal "Updated title", bulletin.reload.title
+  end
+
+  test "owner cannot update bulletin with invalid data" do
+    sign_in(users(:regular))
+
+    bulletin = bulletins(:draft)
+
+    patch bulletin_path(bulletin), params: {
+      bulletin: {
+        title: "",
+        description: bulletin.description,
+        category_id: bulletin.category_id
+      }
+    }
+
+    assert_response :unprocessable_entity
+    assert_not_equal "", bulletin.reload.title
+  end
+  test "user cannot edit another user's bulletin" do
+    sign_in(users(:regular))
+
+    bulletin = bulletins(:other_user_draft)
+
+    get edit_bulletin_path(bulletin)
+
+    assert_response :not_found
+  end
 end

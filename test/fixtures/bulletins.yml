@@ -34,3 +34,10 @@ archived:
   user: admin
   category: one
   state: archived
+  
+other_user_draft:
+  title: Other user draft
+  description: Other description
+  user: admin
+  category: one
+  state: draft
