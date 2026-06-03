@@ -50,7 +50,7 @@ bulletins_data.each_with_index do |(title, category_name), index|
   bulletin = Bulletin.find_or_initialize_by(title: title)
 
   states =
-    if index < 12
+    if index < 14
       "published"
     else
       %w[draft under_moderation rejected archived].sample
