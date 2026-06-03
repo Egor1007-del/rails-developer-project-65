@@ -42,19 +42,25 @@ bulletins_data = [
   [ "Вакансия администратора", "Работа" ]
 ]
 
-states = %w[draft under_moderation published rejected archived]
-
 image_path = Rails.root.join("app/assets/images/test.png")
+
 
 
 bulletins_data.each_with_index do |(title, category_name), index|
   bulletin = Bulletin.find_or_initialize_by(title: title)
 
+  states =
+    if index < 12
+      "published"
+    else
+      %w[draft under_moderation rejected archived].sample
+    end
+
   bulletin.assign_attributes(
     description: "Демо-описание объявления «#{title}». Это тестовая запись для проверки поиска, фильтрации, состояний и пагинации.",
     category: Category.find_by!(name: category_name),
     user: users.sample,
-    state: states.sample
+    state: states
   )
   unless bulletin.image.attached?
     bulletin.image.attach(

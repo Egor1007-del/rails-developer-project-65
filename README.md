@@ -10,4 +10,4 @@
 
 ## Live Demo
 
-[![Render](https://img.shields.io/badge/Render-Deployed-success)](https://rails-developer-project-65-xe3q.onrender.com)
+[![Render](https://img.shields.io/badge/Render-Deployed-success)](https://rails-developer-project-65-1.onrender.com)
