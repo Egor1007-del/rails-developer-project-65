@@ -89,6 +89,7 @@ ru:
     auth:
       callback:
         success: "Вы успешно вошли в систему"
+        email_required: "GitHub не вернул email"
       destroy:
         success: "Вы вышли из аккаунта"
 
@@ -106,8 +107,10 @@ ru:
         category: "Категория"
       update:
         success: "Объявление успешно обновлено"
+        not_editable: "Это объявление нельзя редактировать"
       edit:
         title: "Редактирование объявления"
+        not_editable: "Это объявление нельзя редактировать"
 
     profiles:
       show:
@@ -129,6 +132,7 @@ ru:
         edit: "Редактировать"
         
   bulletins:
+    invalid_transition: "Это действие недоступно для текущего состояния объявления"
     states:
       draft: "Черновик"
       under_moderation: "На модерации"

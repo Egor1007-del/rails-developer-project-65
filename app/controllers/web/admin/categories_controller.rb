@@ -37,10 +37,13 @@ module Web
 
       def destroy
         @category = Category.find(params[:id])
-        @category.destroy
 
-        redirect_to admin_categories_path,
-                    alert: @category.errors.full_messages.to_sentence
+        if @category.destroy
+          redirect_to admin_categories_path, notice: t(".success")
+        else
+          redirect_to admin_categories_path,
+                      alert: @category.errors.full_messages.to_sentence
+        end
       end
 
       private

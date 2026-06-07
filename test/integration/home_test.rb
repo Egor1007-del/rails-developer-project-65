@@ -1,6 +1,22 @@
 require "test_helper"
 
 class HomeTest < ActionDispatch::IntegrationTest
+  test "github callback without email redirects with alert" do
+    post auth_request_path(provider: "github", email: "")
+    follow_redirect!
+
+    assert_redirected_to root_path
+  end
+
+  test "github callback finds existing user case insensitively" do
+    assert_no_difference("User.count") do
+      post auth_request_path(provider: "github", email: users(:regular).email.upcase)
+      follow_redirect!
+    end
+
+    assert_redirected_to root_path
+  end
+
   test "home shows only published bulletins" do
     get root_path
 

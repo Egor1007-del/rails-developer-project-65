@@ -3,7 +3,7 @@ module Web
     before_action :authenticate_user!, except: %i[ show ]
 
     def show
-      @bulletin = Bulletin.find(params[:id])
+      @bulletin = Bulletin.with_attached_image.find(params[:id])
 
       return if @bulletin.published?
       return if signed_in? && @bulletin.user == current_user
@@ -28,10 +28,17 @@ module Web
 
     def edit
       @bulletin = current_user.bulletins.find(params[:id])
+
+      redirect_to profile_path, alert: t(".not_editable") unless @bulletin.draft? || @bulletin.rejected?
     end
 
     def update
       @bulletin = current_user.bulletins.find(params[:id])
+
+      unless @bulletin.draft? || @bulletin.rejected?
+        redirect_to profile_path, alert: t(".not_editable")
+        return
+      end
 
       if @bulletin.update(bulletin_params)
         redirect_to profile_path, notice: t(".success")
@@ -43,15 +50,23 @@ module Web
     def to_moderate
       @bulletin = current_user.bulletins.find(params[:id])
 
-      @bulletin.to_moderate!
-      redirect_to profile_path, notice: t(".success")
+      if @bulletin.may_to_moderate?
+        @bulletin.to_moderate!
+        redirect_to profile_path, notice: t(".success")
+      else
+        redirect_to profile_path, alert: t("bulletins.invalid_transition")
+      end
     end
 
     def archive
       @bulletin = current_user.bulletins.find(params[:id])
 
-      @bulletin.archive!
-      redirect_to profile_path, notice: t(".success")
+      if @bulletin.may_archive?
+        @bulletin.archive!
+        redirect_to profile_path, notice: t(".success")
+      else
+        redirect_to profile_path, alert: t("bulletins.invalid_transition")
+      end
     end
 
     private

@@ -130,6 +130,33 @@ class BulletinsTest < ActionDispatch::IntegrationTest
     assert_equal "Updated title", bulletin.reload.title
   end
 
+  test "owner cannot edit published bulletin" do
+    sign_in(users(:admin))
+
+    bulletin = bulletins(:published)
+
+    get edit_bulletin_path(bulletin)
+
+    assert_redirected_to profile_path
+  end
+
+  test "owner cannot update published bulletin" do
+    sign_in(users(:admin))
+
+    bulletin = bulletins(:published)
+
+    patch bulletin_path(bulletin), params: {
+      bulletin: {
+        title: "Changed published title",
+        description: bulletin.description,
+        category_id: bulletin.category_id
+      }
+    }
+
+    assert_redirected_to profile_path
+    assert_not_equal "Changed published title", bulletin.reload.title
+  end
+
   test "owner cannot update bulletin with invalid data" do
     sign_in(users(:regular))
 
@@ -154,5 +181,16 @@ class BulletinsTest < ActionDispatch::IntegrationTest
     get edit_bulletin_path(bulletin)
 
     assert_response :not_found
+  end
+
+  test "invalid moderation transition redirects without changing state" do
+    sign_in(users(:regular))
+
+    bulletin = bulletins(:under_moderation)
+
+    patch to_moderate_bulletin_path(bulletin)
+
+    assert_redirected_to profile_path
+    assert bulletin.reload.under_moderation?
   end
 end

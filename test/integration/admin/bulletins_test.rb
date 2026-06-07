@@ -32,6 +32,17 @@ class AdminBulletinsTest < ActionDispatch::IntegrationTest
     assert bulletin.reload.published?
   end
 
+  test "admin cannot publish bulletin from invalid state" do
+    sign_in(@admin)
+
+    bulletin = bulletins(:published)
+
+    patch publish_admin_bulletin_path(bulletin)
+
+    assert_redirected_to admin_bulletins_path
+    assert bulletin.reload.published?
+  end
+
   test "admin can reject bulletin" do
     sign_in(@admin)
 

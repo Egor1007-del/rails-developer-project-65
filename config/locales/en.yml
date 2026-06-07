@@ -88,6 +88,7 @@ en:
     auth:
       callback:
         success: "Successfully signed in"
+        email_required: "GitHub did not return an email address"
       destroy:
         success: "Successfully signed out"
 
@@ -105,8 +106,10 @@ en:
         category: "Category"
       edit:
         title: "Edit bulletin"
+        not_editable: "This bulletin cannot be edited"
       update:
         success: "Bulletin successfully updated"
+        not_editable: "This bulletin cannot be edited"
     
     profiles:
       show:
@@ -128,6 +131,7 @@ en:
         edit: "Edit"
 
   bulletins:
+    invalid_transition: "This action is not available for the current bulletin state"
     states:
       draft: "Draft"
       under_moderation: "Under moderation"

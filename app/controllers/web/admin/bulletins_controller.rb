@@ -23,27 +23,36 @@ module Web
       end
 
       def reject
-        @bulletin.reject!
-
-        redirect_to admin_bulletins_path, notice: t(".success")
+        if @bulletin.may_reject?
+          @bulletin.reject!
+          redirect_to admin_bulletins_path, notice: t(".success")
+        else
+          redirect_to admin_bulletins_path, alert: t("bulletins.invalid_transition")
+        end
       end
 
       def publish
-        @bulletin.publish!
-
-        redirect_to admin_bulletins_path, notice: t(".success")
+        if @bulletin.may_publish?
+          @bulletin.publish!
+          redirect_to admin_bulletins_path, notice: t(".success")
+        else
+          redirect_to admin_bulletins_path, alert: t("bulletins.invalid_transition")
+        end
       end
 
       def archive
-        @bulletin.archive!
-
-        redirect_to admin_bulletins_path, notice: t(".success")
+        if @bulletin.may_archive?
+          @bulletin.archive!
+          redirect_to admin_bulletins_path, notice: t(".success")
+        else
+          redirect_to admin_bulletins_path, alert: t("bulletins.invalid_transition")
+        end
       end
 
       private
 
       def set_bulletin
-        @bulletin = Bulletin.find(params[:id])
+        @bulletin = Bulletin.with_attached_image.find(params[:id])
       end
     end
   end

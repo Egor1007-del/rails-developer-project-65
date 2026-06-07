@@ -6,11 +6,16 @@ module Web
     def callback
       auth = request.env["omniauth.auth"]
 
-      email = auth.info.email
+      email = auth.info.email.to_s.strip.downcase
       name = auth.info.name || auth.info.nickname
 
+      if email.blank?
+        redirect_to root_path, alert: t(".email_required")
+        return
+      end
+
       user = User.find_or_initialize_by(email: email)
-      user.name = name
+      user.name = name.presence || email.split("@").first
 
       if user.save
         session[:user_id] = user.id
