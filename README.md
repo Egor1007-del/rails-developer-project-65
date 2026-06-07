@@ -56,6 +56,10 @@ https://rails-developer-project-65-1.onrender.com
 - rejected
 - archived
 
+## Хранение файлов
+
+Для хранения изображений используется Active Storage и Yandex Object Storage (S3-compatible).
+
 ## Используемые технологии
 
 - Ruby 3.3.4
@@ -69,6 +73,7 @@ https://rails-developer-project-65-1.onrender.com
 - Ransack
 - Kaminari
 - Active Storage
+- Yandex Object Storage 
 - Sentry
 
 ## Установка и запуск
@@ -93,6 +98,8 @@ cp .env.example .env
 GITHUB_CLIENT_ID=
 GITHUB_CLIENT_SECRET=
 SENTRY_DSN=
+YANDEX_ACCESS_KEY_ID=
+YANDEX_SECRET_ACCESS_KEY=
 ```
 
 ### Установка зависимостей и настройка проекта
