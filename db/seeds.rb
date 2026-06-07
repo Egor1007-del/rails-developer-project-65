@@ -46,6 +46,7 @@ image_path = Rails.root.join("app/assets/images/test.png")
 
 puts "Image exists: #{File.exist?(image_path)}"
 
+raise "Seed image not found: #{image_path}" unless File.exist?(image_path)
 
 bulletins_data.each_with_index do |(title, category_name), index|
   bulletin = Bulletin.find_or_initialize_by(title: title)
@@ -63,16 +64,13 @@ bulletins_data.each_with_index do |(title, category_name), index|
     user: users.sample,
     state: states
   )
+  bulletin.image.purge if bulletin.image.attached?
 
-  unless bulletin.image.attached?
-
-    bulletin.image.attach(
-      io: File.open(image_path),
-      filename: "test.png",
-      content_type: "image/png"
-    )
-    puts "Attached image to #{bulletin.title}"
-  end
+  bulletin.image.attach(
+    io: File.open(image_path),
+    filename: "test.png",
+    content_type: "image/png"
+  )
 
   bulletin.save!
 end
