@@ -42,15 +42,15 @@
                   = link_to t(".edit"), edit_bulletin_path(bulletin)
                   '
                   - if bulletin.may_to_moderate?
-                    = button_to t(".to_moderate"),
+                    = link_to t(".to_moderate"),
                                 to_moderate_bulletin_path(bulletin),
-                                method: :patch,
+                                data: { turbo_method: :patch },
                                 class: "btn btn-sm btn-primary"
 
                   - if bulletin.may_archive?
-                    = button_to t(".archive"),
+                    = link_to t(".archive"),
                                 archive_bulletin_path(bulletin),
-                                method: :patch,
+                                data: { turbo_method: :patch },
                                 class: "btn btn-sm btn-outline-danger"
                   - unless bulletin.may_to_moderate? || bulletin.may_archive?
                     span.text-muted = t(".no_actions")
