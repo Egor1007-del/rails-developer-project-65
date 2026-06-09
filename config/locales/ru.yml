@@ -147,6 +147,7 @@ ru:
     submit:
       bulletin:
         create: "Создать объявление"
+        update: "Сохранить объявление"
       category:
         create: "Создать категорию"
         update: "Сохранить категорию"

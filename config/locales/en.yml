@@ -146,9 +146,10 @@ en:
     submit:
       bulletin:
         create: "Create bulletin"
+        update: "Save bulletin"
       category:
         create: "Create category"
-        update: "Save changes"
+        update: "Save category"
 
   activerecord:
     models:
