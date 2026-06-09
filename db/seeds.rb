@@ -13,11 +13,25 @@ categories.each do |name|
   Category.find_or_create_by!(name: name)
 end
 
-users = 5.times.map do |index|
+admin = User.find_or_create_by!(email: "admin@test.com") do |user|
+  user.name = "Admin"
+end
+
+admin.update!(admin: true)
+
+regular = User.find_or_create_by!(email: "regular@test.com") do |user|
+  user.name = "Regular"
+end
+
+regular.update!(admin: false)
+
+demo_users = 5.times.map do |index|
   User.find_or_create_by!(email: "user#{index + 1}@example.com") do |user|
     user.name = "User ##{index + 1}"
   end
 end
+
+users = [ admin, regular, *demo_users ]
 
 bulletins_data = [
   [ "Велосипед горный Trek", "Транспорт" ],
