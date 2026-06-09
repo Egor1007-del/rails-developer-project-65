@@ -149,7 +149,7 @@ ru:
         create: "Создать объявление"
       category:
         create: "Создать категорию"
-        update: "Сохранить изменения"
+        update: "Сохранить категорию"
 
   activerecord:
     models:
