@@ -26,6 +26,12 @@ assets:
 assets-clean:
 	$(RAILS) assets:clean
 
+setup:
+	install setup-env db-setup
+
+start:
+	$(BUNDLE) puma -C config/puma.rb -p 3000
+
 # ===== Render =====
 
 render-build: install setup-env db-migrate db-seed assets assets-clean
