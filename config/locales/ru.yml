@@ -158,7 +158,7 @@ ru:
       user: "Пользователь"
     attributes:
       bulletin:
-        title: "Название"
+        title: "Заголовок"
         description: "Описание"
         category: "Категория"
         category_id: "Категория"
