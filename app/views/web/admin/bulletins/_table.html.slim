@@ -20,17 +20,14 @@ table.table.align-middle
             - if bulletin.may_publish?
               = link_to t(".publish"),
                 publish_admin_bulletin_path(bulletin),
-                data: { turbo_method: :patch },
                 class: "btn btn-sm btn-primary"
 
             - if bulletin.may_reject?
               = link_to t(".reject"),
                 reject_admin_bulletin_path(bulletin),
-                data: { turbo_method: :patch },
                 class: "btn btn-sm btn-warning"
 
             - if bulletin.may_archive?
               = link_to t(".archive"),
                 archive_admin_bulletin_path(bulletin),
-                data: { turbo_method: :patch },
                 class: "btn btn-sm btn-danger"
