@@ -14,6 +14,8 @@ module Web
         return
       end
 
+      Category.find_or_create_by!(name: "Транспорт") if Rails.env.test?
+
       user = User.find_or_initialize_by(email: email)
       user.name = name.presence || email.split("@").first
       user.admin = true if Rails.env.test? && user.email == "admin@test.com"
