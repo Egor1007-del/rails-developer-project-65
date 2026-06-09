@@ -30,10 +30,10 @@
 
       .d-flex.gap-2.mt-3
         - if @bulletin.may_publish?
-          = link_to t(".publish"), publish_admin_bulletin_path(@bulletin), data: { turbo_method: :patch }, class: "btn btn-success"
+          = link_to t(".publish"), publish_admin_bulletin_path(@bulletin), data: { turbo_method: :patch, turbo_confirm: t("web.admin.categories.index.confirm") }, class: "btn btn-success"
 
         - if @bulletin.may_reject?
-          = link_to t(".reject"), reject_admin_bulletin_path(@bulletin), data: { turbo_method: :patch }, class: "btn btn-warning"
+          = link_to t(".reject"), reject_admin_bulletin_path(@bulletin), data: { turbo_method: :patch, turbo_confirm: t("web.admin.categories.index.confirm") }, class: "btn btn-warning"
 
         - if @bulletin.may_archive?
-          = link_to t(".archive"), archive_admin_bulletin_path(@bulletin), data: { turbo_method: :patch }, class: "btn btn-outline-danger"
+          = link_to t(".archive"), archive_admin_bulletin_path(@bulletin), data: { turbo_method: :patch, turbo_confirm: t("web.admin.categories.index.confirm") }, class: "btn btn-outline-danger"
