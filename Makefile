@@ -1,7 +1,7 @@
 BUNDLE = bundle exec
 RAILS = $(BUNDLE) rails
 
-.PHONY: setup dev start install setup-env db-setup db-migrate db-seed assets assets-clean
+.PHONY: setup dev start install setup-env db-setup db-migrate db-seed assets assets-clean render-build render-start test lint
 
 dev: install setup start
 	
@@ -30,7 +30,7 @@ assets-clean:
 setup: setup-env install db-setup
 
 start:
-	$(BUNDLE) puma -C config/puma.rb -p 3000
+	bin/dev
 
 # ===== Render =====
 
