@@ -178,8 +178,12 @@ ru:
                 has_many: "Нельзя удалить категорию, пока в ней есть объявления"
         bulletin:
           attributes:
+            category:
+              required: "должна быть выбрана"
             image:
               too_large: "должно быть не больше 5 МБ"
+            user:
+              required: "должен быть указан"
       
 
   layouts:

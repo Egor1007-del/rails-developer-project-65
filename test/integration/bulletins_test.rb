@@ -46,6 +46,26 @@ class BulletinsTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to root_path
   end
+
+  test "signed in user cannot create bulletin without category" do
+    sign_in(@user)
+
+    image = fixture_file_upload(Rails.root.join("test/fixtures/files/test.png"), "image/png")
+
+    assert_no_difference("Bulletin.count") do
+      post bulletins_path, params: {
+        bulletin: {
+          title: "New bulletin",
+          description: "New bulletin description",
+          image: image
+        }
+      }
+    end
+
+    assert_response :unprocessable_entity
+    assert_match "должна быть выбрана", response.body
+  end
+
   test "bulletin publication workflow" do
     bulletin = bulletins(:draft)
 
