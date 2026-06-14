@@ -1,8 +1,6 @@
 class Bulletin < ApplicationRecord
   include AASM
 
-  MAX_IMAGE_SIZE = 5.megabytes
-
   belongs_to :user
   belongs_to :category
 
@@ -10,9 +8,10 @@ class Bulletin < ApplicationRecord
 
   validates :title,  presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 1000 }
-  validates :image, presence: true, content_type: %i[png jpg jpeg]
-  validate :image_size
-
+  validates :image,
+            attached: true,
+            content_type: %w[image/png image/jpeg],
+            size: { less_than_or_equal_to: 5.megabytes }
 
   aasm column: :state, skip_validation_on_save: true do
     state :draft, initial: true
@@ -46,14 +45,5 @@ class Bulletin < ApplicationRecord
   end
   def self.ransackable_associations(_auth_object = nil)
     %w[category]
-  end
-
-  private
-
-  def image_size
-    return unless image.attached?
-    return if image.blob.byte_size <= MAX_IMAGE_SIZE
-
-    errors.add(:image, :too_large)
   end
 end

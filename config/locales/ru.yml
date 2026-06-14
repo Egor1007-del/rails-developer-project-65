@@ -181,7 +181,8 @@ ru:
             category:
               required: "должна быть выбрана"
             image:
-              too_large: "должно быть не больше 5 МБ"
+              content_type_invalid: "должно быть в формате PNG или JPEG"
+              file_size_not_less_than_or_equal_to: "должно быть не больше 5 МБ"
             user:
               required: "должен быть указан"
       

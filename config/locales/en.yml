@@ -180,7 +180,8 @@ en:
             category:
               required: "must be selected"
             image:
-              too_large: "must be 5 MB or less"
+              content_type_invalid: "must be PNG or JPEG"
+              file_size_not_less_than_or_equal_to: "must be 5 MB or less"
             user:
               required: "must be specified"
       messages:

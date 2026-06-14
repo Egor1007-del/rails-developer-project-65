@@ -53,6 +53,8 @@ gem "simple_form"
 gem "pundit"
 gem "aasm"
 
+gem "active_storage_validations"
+
 gem "ransack"
 gem "kaminari"
 
