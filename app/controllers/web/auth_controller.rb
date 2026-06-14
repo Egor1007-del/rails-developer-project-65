@@ -1,7 +1,7 @@
 module Web
   class AuthController < ApplicationController
-    def auth_request
-    end
+    # def auth_request
+    # end
 
     def callback
       auth = request.env["omniauth.auth"]
