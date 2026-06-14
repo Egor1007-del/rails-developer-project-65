@@ -14,15 +14,17 @@ if Rails.env.test?
 
   OmniAuth.config.before_callback_phase do |env|
     params = env["omniauth.params"] || {}
+    mock_auth = OmniAuth.config.mock_auth[:github]
 
-    email = params["email"] || "user@test.com"
+    email = params["email"] || mock_auth.info.email || "user@test.com"
+    name = params["name"] || mock_auth.info.name || email.split("@").first
 
     env["omniauth.auth"] = OmniAuth::AuthHash.new(
       provider: "github",
       uid: email,
       info: {
         email: email,
-        name: email.split("@").first
+        name: name
       },
       extra: {
         admin: params["admin"] == "true"
