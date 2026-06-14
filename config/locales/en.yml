@@ -177,8 +177,12 @@ en:
                 has_many: "Нельзя удалить категорию, пока в ней есть объявления"
         bulletin:
           attributes:
+            category:
+              required: "must be selected"
             image:
               too_large: "must be 5 MB or less"
+            user:
+              required: "must be specified"
       messages:
         blank: "can't be blank"
         too_short: "is too short"
