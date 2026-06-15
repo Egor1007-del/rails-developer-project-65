@@ -13,7 +13,7 @@ setup-env:
 	cp -n .env.example .env || true
 
 db-setup:
-	$(RAILS) db:create db:migrate
+	$(RAILS) db:create db:migrate db:seed
 
 db-migrate:
 	$(RAILS) db:migrate
