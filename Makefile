@@ -42,7 +42,7 @@ render-start:
 
 
 test:
-	bin/rails db:test:prepare test test:system
+	bin/rails db:test:prepare db-seed test test:system
 lint: 
 	bundle exec rubocop
 	bundle exec slim-lint app/views
