@@ -76,15 +76,6 @@ en:
         destroy:
           success: "Category was successfully deleted"
       
-    home:
-      index:
-        title: "Bulletins"
-        empty: "No bulletins yet"
-        ago: "%{time} ago"
-        search_by_title: "Search by bulletin title"
-        all_categories: "Select category"
-        search: "Search"
-        reset: "Reset"
     auth:
       callback:
         success: "Successfully signed in"
@@ -93,6 +84,14 @@ en:
         success: "Successfully signed out"
 
     bulletins:
+      index:
+        title: "Bulletins"
+        empty: "No bulletins yet"
+        ago: "%{time} ago"
+        search_by_title: "Search by bulletin title"
+        all_categories: "Select category"
+        search: "Search"
+        reset: "Reset"
       new:
         title: "New bulletin"
       create:

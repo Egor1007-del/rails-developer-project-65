@@ -13,7 +13,7 @@ table.table.align-middle
         td = link_to bulletin.title, admin_bulletin_path(bulletin)
         td = bulletin.category.name
         td = bulletin.user.email
-        td = t("web.home.index.ago", time: time_ago_in_words(bulletin.created_at))
+        td = t("web.bulletins.index.ago", time: time_ago_in_words(bulletin.created_at))
         td
           .d-flex.gap-1.align-items-center
 

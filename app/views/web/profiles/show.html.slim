@@ -33,7 +33,7 @@
               td = bulletin.title
               td = bulletin.category.name
               td = t("bulletins.states.#{bulletin.state}")
-              td = t("web.home.index.ago",
+              td = t("web.bulletins.index.ago",
                       time: time_ago_in_words(bulletin.created_at))
               td
                 .d-flex.gap-2

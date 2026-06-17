@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope module: :web do
-    root "home#index"
+    root "bulletins#index"
 
     match "auth/:provider/callback", to: "auth#callback", as: :callback_auth, via: %i[get post]
     delete "logout", to: "auth#destroy", as: :logout

@@ -1,6 +1,15 @@
 module Web
   class BulletinsController < ApplicationController
-    before_action :authenticate_user!, except: %i[ show ]
+    before_action :authenticate_user!, except: %i[index show]
+
+    def index
+      @q = Bulletin.published.ransack(params[:q])
+      @bulletins = @q.result(distinct: true)
+        .with_attached_image
+        .includes(:category, :user)
+        .order(created_at: :desc)
+        .page(params[:page]).per(12)
+    end
 
     def show
       @bulletin = Bulletin.with_attached_image.find(params[:id])
