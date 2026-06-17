@@ -23,6 +23,16 @@ class HomeTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
+  test "github callback without name keeps existing user name" do
+    user = users(:admin)
+
+    assert_no_changes -> { user.reload.name } do
+      sign_in_with_github(email: user.email, name: "")
+    end
+
+    assert_redirected_to root_path
+  end
+
   test "home shows only published bulletins" do
     get root_path
 

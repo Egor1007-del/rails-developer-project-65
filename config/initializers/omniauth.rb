@@ -16,8 +16,8 @@ if Rails.env.test?
     params = env["omniauth.params"] || {}
     mock_auth = OmniAuth.config.mock_auth[:github]
 
-    email = params["email"] || mock_auth.info.email || "user@test.com"
-    name = params["name"] || mock_auth.info.name || email.split("@").first
+    email = params["email"].presence || mock_auth.info.email.presence || "user@test.com"
+    name = params["name"].presence || mock_auth.info.name.presence || User.find_by(email: email)&.name
 
     env["omniauth.auth"] = OmniAuth::AuthHash.new(
       provider: "github",

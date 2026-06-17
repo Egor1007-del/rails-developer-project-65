@@ -11,7 +11,7 @@ module Web
       end
 
       user = User.find_or_initialize_by(email: email)
-      user.name = auth.info.name
+      user.name = auth.info[:name] if user.new_record? || auth.info[:name].present?
 
       if user.save
         session[:user_id] = user.id
