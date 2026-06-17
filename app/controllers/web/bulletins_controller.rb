@@ -13,12 +13,7 @@ module Web
 
     def show
       @bulletin = Bulletin.with_attached_image.find(params[:id])
-
-      return if @bulletin.published?
-      return if signed_in? && @bulletin.user == current_user
-      return if signed_in? && current_user.admin?
-
-      redirect_to root_path, alert: t("auth.required")
+      authorize @bulletin
     end
 
     def new
