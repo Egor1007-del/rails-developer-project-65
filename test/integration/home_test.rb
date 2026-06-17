@@ -15,6 +15,14 @@ class HomeTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
+  test "github callback without name does not guess name from email" do
+    assert_no_difference("User.count") do
+      sign_in_with_github(email: "new-user@example.com", name: "")
+    end
+
+    assert_redirected_to root_path
+  end
+
   test "home shows only published bulletins" do
     get root_path
 

@@ -24,7 +24,7 @@ class ActionDispatch::IntegrationTest
       uid: email.to_s,
       info: {
         email: email,
-        name: name || email.to_s.split("@").first
+        name: name
       },
       extra: { admin: false }
     )
