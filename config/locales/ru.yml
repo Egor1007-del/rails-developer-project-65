@@ -187,6 +187,10 @@ ru:
       
 
   layouts:
+    web:
+      admin:
+        flash:
+          admins_only: "Доступ только для администраторов"
     shared:
       board: "Доска объявлений"
       home: "Главная"

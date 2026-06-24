@@ -20,4 +20,11 @@ module AuthManagement
 
     redirect_to root_path, alert: t("auth.required")
   end
+
+  def require_admin!
+    return if current_user&.admin?
+
+    redirect_back fallback_location: root_path,
+                  alert: t("layouts.web.admin.flash.admins_only")
+  end
 end

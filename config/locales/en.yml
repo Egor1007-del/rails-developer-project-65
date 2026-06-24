@@ -190,6 +190,10 @@ en:
         taken: "has already been taken"
 
   layouts:
+    web:
+      admin:
+        flash:
+          admins_only: "Admins only"
     shared:
       board: "Bulletin Board"
       home: "Home"

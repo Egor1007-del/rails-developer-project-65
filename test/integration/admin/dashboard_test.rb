@@ -20,11 +20,15 @@ class AdminDashboardTest < ActionDispatch::IntegrationTest
     get admin_bulletins_path
 
     assert_redirected_to root_path
+    follow_redirect!
+    assert_match I18n.t("layouts.web.admin.flash.admins_only"), response.body
   end
 
   test "guest cannot access admin page" do
     get admin_bulletins_path
 
     assert_redirected_to root_path
+    follow_redirect!
+    assert_match I18n.t("layouts.web.admin.flash.admins_only"), response.body
   end
 end
