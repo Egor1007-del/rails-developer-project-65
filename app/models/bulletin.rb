@@ -37,9 +37,6 @@ class Bulletin < ApplicationRecord
     end
   end
 
-  scope :published, -> { where(state: :published) }
-  scope :under_moderation, -> { where(state: :under_moderation) }
-
   def self.ransackable_attributes(_auth_object = nil)
     %w[title category_id state]
   end
