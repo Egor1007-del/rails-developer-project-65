@@ -1,0 +1,29 @@
+draft_image:
+  name: image
+  record: draft (Bulletin)
+  blob: test_image
+
+under_moderation_image:
+  name: image
+  record: under_moderation (Bulletin)
+  blob: test_image
+
+published_image:
+  name: image
+  record: published (Bulletin)
+  blob: test_image
+
+rejected_image:
+  name: image
+  record: rejected (Bulletin)
+  blob: test_image
+
+archived_image:
+  name: image
+  record: archived (Bulletin)
+  blob: test_image
+
+other_user_draft_image:
+  name: image
+  record: other_user_draft (Bulletin)
+  blob: test_image

@@ -13,7 +13,7 @@ class Bulletin < ApplicationRecord
             content_type: %w[image/png image/jpeg],
             size: { less_than_or_equal_to: 5.megabytes }
 
-  aasm column: :state, skip_validation_on_save: true do
+  aasm column: :state do
     state :draft, initial: true
     state :under_moderation
     state :published

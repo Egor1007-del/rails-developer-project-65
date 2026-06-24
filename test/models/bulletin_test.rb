@@ -36,6 +36,14 @@ class BulletinTest < ActiveSupport::TestCase
     assert_not bulletin.may_publish?
   end
 
+  test "state transition runs validations" do
+    bulletin = bulletins(:draft)
+    bulletin.image.purge
+
+    assert_not bulletin.to_moderate!
+    assert_includes bulletin.errors.details[:image].pluck(:error), :blank
+  end
+
   private
 
   def build_bulletin

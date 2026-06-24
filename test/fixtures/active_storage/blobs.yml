@@ -1,0 +1,1 @@
+test_image: <%= ActiveStorage::FixtureSet.blob(filename: "test.png", service_name: "test") %>
