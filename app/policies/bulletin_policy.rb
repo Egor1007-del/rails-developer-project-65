@@ -3,6 +3,14 @@ class BulletinPolicy < ApplicationPolicy
     record.published? || owner? || user&.admin?
   end
 
+  def update?
+    owner? && (record.draft? || record.rejected?)
+  end
+
+  def edit?
+    update?
+  end
+
   private
 
   def owner?

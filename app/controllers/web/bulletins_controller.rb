@@ -31,18 +31,13 @@ module Web
     end
 
     def edit
-      @bulletin = current_user.bulletins.find(params[:id])
-
-      redirect_to profile_path, alert: t(".not_editable") unless @bulletin.draft? || @bulletin.rejected?
+      @bulletin = Bulletin.find(params[:id])
+      authorize @bulletin
     end
 
     def update
-      @bulletin = current_user.bulletins.find(params[:id])
-
-      unless @bulletin.draft? || @bulletin.rejected?
-        redirect_to profile_path, alert: t(".not_editable")
-        return
-      end
+      @bulletin = Bulletin.find(params[:id])
+      authorize @bulletin
 
       if @bulletin.update(bulletin_params)
         redirect_to profile_path, notice: t(".success")

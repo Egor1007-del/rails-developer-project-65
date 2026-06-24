@@ -157,7 +157,7 @@ class BulletinsTest < ActionDispatch::IntegrationTest
 
     get edit_bulletin_path(bulletin)
 
-    assert_redirected_to profile_path
+    assert_redirected_to root_path
   end
 
   test "owner cannot update published bulletin" do
@@ -173,7 +173,7 @@ class BulletinsTest < ActionDispatch::IntegrationTest
       }
     }
 
-    assert_redirected_to profile_path
+    assert_redirected_to root_path
     assert_not_equal "Changed published title", bulletin.reload.title
   end
 
@@ -200,7 +200,7 @@ class BulletinsTest < ActionDispatch::IntegrationTest
 
     get edit_bulletin_path(bulletin)
 
-    assert_response :not_found
+    assert_redirected_to root_path
   end
 
   test "invalid moderation transition redirects without changing state" do
